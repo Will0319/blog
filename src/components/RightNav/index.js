@@ -34,7 +34,6 @@ class RightNav extends React.Component {
             hash[curVal.id] ? '' : hash[curVal.id] = true && preVal.push(curVal);
             return preVal
         }, []);
-        // console.log(taglist)
         this.setState({
             taglist
         })
@@ -94,7 +93,11 @@ class RightNav extends React.Component {
                         {
                             taglist && taglist.length?(
                                 taglist.map((item,index)=>{
-                                    return <Tag key={index} color={`#${item.color}`} className="tag">{item.name}</Tag>
+                                    return (
+                                        <Tag key={index} color={`#${item.color}`} className="tag">
+                                             {item.name}
+                                        </Tag>
+                                    )
                                 })
                             ):'暂无标签'
                         }

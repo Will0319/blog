@@ -27,7 +27,7 @@ class Home extends React.Component {
                                             style={{ width: "100%", marginBottom:20}}
                                         >
                                             <Meta
-                                                title={<Link to={`/blog/${item.number}`}><h3>{item.title}</h3></Link>}
+                                                title={<h3><Link to={`/blog/${item.number}`}>{item.title}</Link></h3>}
                                                 description={
                                                     <Row>
                                                         <Row style={{display:'flex'}}>

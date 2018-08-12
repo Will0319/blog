@@ -58,7 +58,6 @@ export default class Header extends React.Component{
             <Affix offsetTop={0}>
                 <Row className='header'>
                     <Col span={6} className='header-title' style={{marginTop:30}}>
-                        {/* <Texty enter={this.getEnter} leave={this.getEnter}>Blog</Texty> */}
                         <div className="combined" style={{ color: '#fff' }}>
                             <div className="combined-shape">
                                 <div className="shape-left">

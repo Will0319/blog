@@ -22,7 +22,7 @@ class App extends Component {
   getBlogApiData() {
     axios.get('https://api.github.com/repos/Will0319/blog/issues', {
       params: {
-        creator: 'Will0319',
+        // creator: 'Will0319',
         // labels: 'blog',
       },
     }).then((response) => {
@@ -37,6 +37,7 @@ class App extends Component {
       }
     });
   }
+
   // 时间处理函数，留下年月日
   updateTime(data) {
     if (data.length === 0) return;
@@ -52,15 +53,15 @@ class App extends Component {
       <HashRouter>
       <div className='web' >
         {/* 返回顶部 */}
-        {/* <div>
+        <div>
           <BackTop>
-              <div className="ant-back-top-inner" visibilityHeight={100}>UP</div>
+              <div className="ant-back-top-inner">UP</div>
           </BackTop> 
-        </div> */}
+        </div>
         {/* 头部组件 */}
         <Header />
         {/* 音乐组件 */}
-        {/* <Music /> */}
+        <Music />
           <Row className='bg'>
             {/* 内容区域 */}
             <Row style={{marginTop:20}}>

@@ -62,7 +62,7 @@ const options = {
     //audio controller initial position    [ type `Object` default '{top:0,left:0}' ]
     defaultPosition: {
         bottom: 100,
-        right: 50
+        left: 50
     },
 
     // play mode text config of the audio player
