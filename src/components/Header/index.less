@@ -23,6 +23,20 @@
             border-bottom: 4px solid #13daec;
             transition: all .5s ease;
         }
+        .header-menu-index:after{
+          content: '首页'
+        }
+        .header-menu-archive:after{
+          content: '归档'
+        }
+        @media (max-width: 767px) {
+          .header-menu-index:after{
+            content: ''
+          }
+          .header-menu-archive:after{
+            content: ''
+          }
+        }
     }
     
 }

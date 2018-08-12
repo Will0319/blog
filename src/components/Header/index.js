@@ -123,12 +123,12 @@ export default class Header extends React.Component{
                     </Col>
                     <Link to='/'>
                         <Col offset={14} span={2} className='header-menu'>
-                            <span><Icon type="home" style={{marginRight:5}}/>首页</span>
+                            <span className='header-menu-index'><Icon type="home" style={{marginRight:5}}/></span>
                         </Col>
                     </Link>
                     <Link to='/archive'>
                         <Col span={2} className='header-menu'>
-                            <span><Icon type="switcher" style={{ marginRight: 5 }} />归档</span>
+                            <span className='header-menu-archive'><Icon type="switcher" style={{ marginRight: 5 }} /></span>
                         </Col>
                     </Link>
                 </Row>
