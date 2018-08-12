@@ -6,13 +6,3 @@
 2.yarn start 快速启动项目
 3.yarn build 进行上线项目打包
 
-##项目文件架构
-.
-├── README.md
-├── config
-├── node_modules
-├── package.json
-├── public
-├── scripts
-├── src
-└── yarn.lock
