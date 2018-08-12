@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
-import {Row,Col} from 'antd';
+import { Row, Col, BackTop} from 'antd';
 import './App.less';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,6 +10,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { issuesList } from './redux/action';
 import Utils from './utils';
+
 class App extends Component {
   state = {
     issues: []
@@ -50,6 +51,12 @@ class App extends Component {
     return (
       <HashRouter>
       <div className='web' >
+        {/* 返回顶部 */}
+        {/* <div>
+          <BackTop>
+              <div className="ant-back-top-inner" visibilityHeight={100}>UP</div>
+          </BackTop> 
+        </div> */}
         {/* 头部组件 */}
         <Header />
         {/* 音乐组件 */}
@@ -69,11 +76,10 @@ class App extends Component {
                   </Row>
               </Col>
             </Row>
-
-            
           </Row>
           {/* 底部组件 */}
         <Footer />
+
       </div>
       </HashRouter>
     );

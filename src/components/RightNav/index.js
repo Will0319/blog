@@ -2,6 +2,7 @@ import React from 'react';
 import './index.less';
 import { Row, Card, Tooltip, Icon , Tag } from 'antd';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 const { Meta } = Card;
 
 class RightNav extends React.Component {
@@ -103,8 +104,8 @@ class RightNav extends React.Component {
                         {issues &&
                             issues.map((item, index) => (
                                 <li key={index} className="tag">
-                                    {item.title}
-                                    {/* <Link to={`/article/${item._id}`}>{item.title}</Link> */}
+                                    
+                                    <Link to={`/blog/${item.number}`}>{item.title}</Link>
                                 </li>
                             ))}
                     </ul>

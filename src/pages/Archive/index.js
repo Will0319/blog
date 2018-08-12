@@ -2,6 +2,7 @@ import React from 'react';
 import { Timeline , Row , Card } from 'antd';
 import { connect } from 'react-redux';
 import Utils from '../../utils';
+import {Link} from 'react-router-dom';
 import './index.less';
 const { Meta } = Card;
 
@@ -44,8 +45,10 @@ class Archive extends React.Component {
                                 issues&&issues.length?(
                                     issues.map((item,index)=>{
                                         return (<Timeline.Item key={index}>
+                                            <Link to={`/blog/${item.number}`}>
                                             <span style={{marginRight:50}}>{item.title}</span>
                                             <span>{item.created_at}</span>
+                                            </Link>
                                             </Timeline.Item>)
                                     })
                                 ):null

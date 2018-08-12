@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Card, Icon, Avatar, Col, Tag} from 'antd';
 import './index.less';
+import {Link} from 'react-router-dom';
 // 动画组件
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'react-redux';
@@ -14,8 +15,8 @@ class Home extends React.Component {
             <Row style={{width:'100%',height:'100%'}}>
                 <QueueAnim
                     animConfig={[
-                        { opacity: [1, 0], translateY: [0, 50] },
-                        { opacity: [1, 0], translateY: [0, -50] }
+                        { opacity: [1, 0], translateY: [0, 150] },
+                        { opacity: [1, 0], translateY: [0, -150] }
                     ]}>
                         {
                             issues && issues.length?(
@@ -24,12 +25,9 @@ class Home extends React.Component {
                                         <Card
                                             key={index}
                                             style={{ width: "100%", marginBottom:20}}
-                                            // cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
-                                            // actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
                                         >
                                             <Meta
-                                                // avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                                                title={<h3>{item.title}</h3>}
+                                                title={<Link to={`/blog/${item.number}`}><h3>{item.title}</h3></Link>}
                                                 description={
                                                     <Row>
                                                         <Row style={{display:'flex'}}>
