@@ -3,6 +3,10 @@ import './index.less';
 import { Row, Card, Tooltip, Icon , Tag } from 'antd';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+// 引入标签弹窗
+import TagModal from '../TagModal';
+// 引入redux动作
+import { tagToggle, nowTagName } from '../../redux/action';
 const { Meta } = Card;
 
 class RightNav extends React.Component {
@@ -39,12 +43,19 @@ class RightNav extends React.Component {
         })
     }
 
+    TagToggle=(name)=>{
+        const { dispatch } = this.props;
+        dispatch(tagToggle(true));
+        // console.log(name)
+        dispatch(nowTagName(name));
+    }
 
     render() {
         const { taglist } = this.state;
-        const { issues } = this.props;
+        const { issues, tagvisible } = this.props;
         return (
             <Row>
+                {tagvisible ? <TagModal /> : null}
                 <Card bordered={false} hoverable={true} className="card" cover={<img src={require('../../img/headbg.jpeg')} />}>
                     <div className="authorImg">
                         <img src={require('../../img/headimg.jpg')} alt="" />
@@ -94,7 +105,7 @@ class RightNav extends React.Component {
                             taglist && taglist.length?(
                                 taglist.map((item,index)=>{
                                     return (
-                                        <Tag key={index} color={`#${item.color}`} className="tag">
+                                        <Tag key={index} color={`#${item.color}`} className="tag" onClick={()=>this.TagToggle(item.name)}>
                                              {item.name}
                                         </Tag>
                                     )
@@ -107,7 +118,6 @@ class RightNav extends React.Component {
                         {issues &&
                             issues.map((item, index) => (
                                 <li key={index} className="tag">
-                                    
                                     <Link to={`/blog/${item.number}`}>{item.title}</Link>
                                 </li>
                             ))}
@@ -120,7 +130,8 @@ class RightNav extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        issues: state.issues
+        issues: state.issues,
+        tagvisible: state.tagvisible,
     }
 }
 

@@ -65,8 +65,8 @@ class App extends Component {
           <Row className='bg'>
             {/* 内容区域 */}
             <Row style={{marginTop:20}}>
-              <Col xs={1} xm={1} md={1} lg={1} xl={3} xxl={5}></Col>
-              <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={14}>
+              <Col xs={1} xm={1} md={1} lg={1} xl={3} xxl={4}></Col>
+              <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={16}>
                   <Row>
                     <Col xs={24} sm={24} md={24} lg={17} xl={17} xxl={17}>
                       {this.props.children}
