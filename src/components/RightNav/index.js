@@ -113,7 +113,7 @@ class RightNav extends React.Component {
                             ):'暂无标签'
                         }
                 </Card>
-                <Card title="文章列表" hoverable={true} className="card">
+                <Card title={<span onClick={()=>this.toTop()}>文章列表</span>} hoverable={true} className="card">
                     <ul>
                         {issues &&
                             issues.map((item, index) => (

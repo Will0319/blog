@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Card, Icon, Avatar, Col, Tag} from 'antd';
+import { Row, Card, Icon, Avatar, Col, Tag, Pagination} from 'antd';
 import './index.less';
 import {Link} from 'react-router-dom';
 // 动画组件
@@ -8,9 +8,40 @@ import { connect } from 'react-redux';
 const { Meta } = Card;
 
 class Home extends React.Component {
+    state={
+        // 设置一个状态来保存当前页码的文档
+        nowPageIssues:[],
+        // 当前选中的页码
+        page:1,
+        // 一页的数量
+        pageNum:1
+    }
+
+    componentWillMount(){
+        const { issues } = this.props;
+        const { page, pageNum }= this.state;
+        this.setState({ nowPageIssues: issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
+    }
+
+    componentWillReceiveProps(newProps){
+        if(this.props.issues!=newProps.issues){
+            const { page, pageNum } = this.state;
+            console.log(pageNum * (page - 1))
+            console.log((pageNum * page) - 1)
+            this.setState({ nowPageIssues: newProps.issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
+        }
+    }
+
+    pageChange = (page, pageSize) => {
+        // console.log(page, pageSize)
+        const {pageNum} = this.state;
+        const {issues} = this.props;
+        this.setState({ page, nowPageIssues: issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
+    }
 
     render() {
         const {issues} = this.props;
+        const { nowPageIssues, page, pageNum} = this.state;
         return (
             <Row style={{width:'100%',height:'100%'}}>
                 <QueueAnim
@@ -19,8 +50,8 @@ class Home extends React.Component {
                         { opacity: [1, 0], translateY: [0, -150] }
                     ]}>
                         {
-                            issues && issues.length?(
-                                issues.map((item,index)=>{
+                        nowPageIssues && nowPageIssues.length?(
+                            nowPageIssues.map((item,index)=>{
                                     return(
                                         <Card
                                             key={index}
@@ -61,6 +92,13 @@ class Home extends React.Component {
                                 })
                             ):null
                         }
+                    <Pagination 
+                        current={page} 
+                        total={issues.length} 
+                        pageSize={pageNum}
+                        onChange={(page, pageSize) => this.pageChange(page, pageSize)}
+                        style={{display: 'flex',justifyContent: 'center'}}
+                    />
                 </QueueAnim>
             </Row>
         );

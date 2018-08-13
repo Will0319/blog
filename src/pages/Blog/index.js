@@ -17,6 +17,7 @@ class Blog extends React.Component {
 
     componentWillMount(){
         // const { issues } = this.props;
+        Utils.ScrollToAnchor();
         marked.setOptions({
             highlight: code => hljs.highlightAuto(code).value,
         });
@@ -24,12 +25,14 @@ class Blog extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         if (this.props.match.params.number !== nextProps.match.params.number) {
+            Utils.ScrollToAnchor();
             // console.log(nextProps.match.params.number)
             this.getBlogApiInfo(nextProps.match.params.number);
         }
     }
     // 通过路由传来的参数去获取文档
     getBlogApiInfo(path) {
+        this.setState({issuesInfo:[]})
         const self = this;
         axios.get('https://api.github.com/repos/Will0319/blog/issues/' + path, {
         }).then((response) => {

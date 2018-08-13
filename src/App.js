@@ -22,8 +22,14 @@ class App extends Component {
   getBlogApiData() {
     axios.get('https://api.github.com/repos/Will0319/blog/issues', {
       params: {
-        // creator: 'Will0319',
+        creator: 'Will0319',
         // labels: 'blog',
+        // page: 1,
+        // per_page: 2,
+        // state: 'open',
+        // sort: 'created',
+        // direction: 'desc',
+        // access_token: 'e1f96b725819ec59913f04d2ee6901de'
       },
     }).then((response) => {
       if (response.status === 200) {
@@ -52,6 +58,7 @@ class App extends Component {
     return (
       <HashRouter>
       <div className='web' >
+        <div id='to-header'></div>
         {/* 返回顶部 */}
         <div>
           <BackTop>
@@ -72,7 +79,7 @@ class App extends Component {
                       {this.props.children}
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={{span:6,offset:1}} xl={{span:6,offset:1}} xxl={{span:6,offset:1}}>
-                      <RightNav issues={issues}/>
+                      <RightNav/>
                     </Col>
                   </Row>
               </Col>
