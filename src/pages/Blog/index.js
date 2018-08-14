@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Icon, Card, message , Tag } from 'antd';
-import { HashRouter } from 'react-router-dom';
 import './index.less';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -12,11 +11,11 @@ const { Meta } = Card;
 class Blog extends React.Component {
 
     state={
-        issuesInfo:[]
+        issuesInfo:[],
+        loading:false
     }
 
     componentWillMount(){
-        // const { issues } = this.props;
         Utils.ScrollToAnchor();
         marked.setOptions({
             highlight: code => hljs.highlightAuto(code).value,
@@ -26,13 +25,12 @@ class Blog extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (this.props.match.params.number !== nextProps.match.params.number) {
             Utils.ScrollToAnchor();
-            // console.log(nextProps.match.params.number)
             this.getBlogApiInfo(nextProps.match.params.number);
         }
     }
     // 通过路由传来的参数去获取文档
     getBlogApiInfo(path) {
-        this.setState({issuesInfo:[]})
+        this.setState({ issuesInfo: [], loading:true})
         const self = this;
         axios.get('https://api.github.com/repos/Will0319/blog/issues/' + path, {
         }).then((response) => {
@@ -40,7 +38,7 @@ class Blog extends React.Component {
                     // 进行时间格式统一处理
                     const data = response.data;
                     // console.log(data)
-                    this.setState({ issuesInfo:data})
+                    this.setState({ issuesInfo: data, loading:false})
                 }
             }).catch(function (error) {
                     message.warning('文章不存在');
@@ -48,11 +46,12 @@ class Blog extends React.Component {
     }
 
     render() {
-        const { issuesInfo } = this.state;
+        const { issuesInfo, loading } = this.state;
         return (
             <Row style={{color:'#fff',marginBottom:20}}>
                 <Card
                     style={{ width: '100%' }}
+                    loading={loading}
                 >
                     <Meta
                         title={
@@ -77,7 +76,7 @@ class Blog extends React.Component {
                         description={
                             issuesInfo && issuesInfo.body ? (
                                 <div className='article-detail' dangerouslySetInnerHTML={{ __html: marked(issuesInfo.body) }} />
-                            ) : '文章载入中...'
+                            ) : '暂无内容...'
                         }
                     />
                 </Card>

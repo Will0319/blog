@@ -2,11 +2,12 @@ import React from 'react';
 import './index.less';
 import { Row, Card, Tooltip, Icon , Tag } from 'antd';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link,withRouter} from 'react-router-dom';
 // 引入标签弹窗
 import TagModal from '../TagModal';
 // 引入redux动作
 import { tagToggle, nowTagName } from '../../redux/action';
+
 const { Meta } = Card;
 
 class RightNav extends React.Component {
@@ -43,12 +44,11 @@ class RightNav extends React.Component {
         })
     }
 
-    TagToggle=(name)=>{
-        const { dispatch } = this.props;
-        dispatch(tagToggle(true));
-        // console.log(name)
-        dispatch(nowTagName(name));
-    }
+    // toTagBlog=(name)=>{
+    //     this.props.history.push({
+    //         pathname: `/tagblog/${name}`
+    //     })
+    // }
 
     render() {
         const { taglist } = this.state;
@@ -105,9 +105,12 @@ class RightNav extends React.Component {
                             taglist && taglist.length?(
                                 taglist.map((item,index)=>{
                                     return (
-                                        <Tag key={index} color={`#${item.color}`} className="tag" onClick={()=>this.TagToggle(item.name)}>
-                                             {item.name}
-                                        </Tag>
+                                        <Link to={`/tagblog/${item.name}`} key={index}>
+                                            {/* <Tag key={index} color={`#${item.color}`} className="tag" onClick={()=>this.toTagBlog(item.name)}> */}
+                                            <Tag key={index} color={`#${item.color}`} className="tag" >
+                                                {item.name}
+                                            </Tag>
+                                       </Link>
                                     )
                                 })
                             ):'暂无标签'
@@ -135,4 +138,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(RightNav);
+export default withRouter(connect(mapStateToProps)(RightNav));

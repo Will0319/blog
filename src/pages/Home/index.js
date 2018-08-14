@@ -14,7 +14,7 @@ class Home extends React.Component {
         // 当前选中的页码
         page:1,
         // 一页的数量
-        pageNum:1
+        pageNum:5
     }
 
     componentWillMount(){
@@ -97,7 +97,8 @@ class Home extends React.Component {
                         total={issues.length} 
                         pageSize={pageNum}
                         onChange={(page, pageSize) => this.pageChange(page, pageSize)}
-                        style={{display: 'flex',justifyContent: 'center'}}
+                        hideOnSinglePage={true}
+                        style={{display: 'flex',justifyContent: 'center',marginBottom:15}}
                     />
                 </QueueAnim>
             </Row>

@@ -5,24 +5,24 @@ import "react-jinke-music-player/assets/index.css";
 const options = {
     //audio lists model
     audioLists: [
-        {
-            name: "后来的我们",
-            singer: "五月天",
-            cover: "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=1cb4a5bc00f3d7ca18fb37249376d56c/b3119313b07eca80e1aedb659d2397dda044838d.jpg",
-            musicSrc: "http://www.ytmp3.cn/down/49444.mp3"
-        },
+        // {
+        //     name: "后来的我们",
+        //     singer: "五月天",
+        //     cover: "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=1cb4a5bc00f3d7ca18fb37249376d56c/b3119313b07eca80e1aedb659d2397dda044838d.jpg",
+        //     musicSrc: "http://www.ytmp3.cn/down/49444.mp3"
+        // },
         // {
         //     name: "往后余生",
         //     singer: "王良",
         //     cover: 'https://m10.music.126.net/20180811031914/1ba45c0574e9e7eb52970aa0d89c1e87/ymusic/9ddc/b10e/919e/2ef50b0473f7f2cce3193ed620898cd7.mp3',
         //     musicSrc: "http://www.ytmp3.cn/down/50539.mp3"
         // },
-        // {
-        //     name: "达尔文",
-        //     singer: "蔡健雅",
-        //     cover: "https://www.lijinke.cn/music/5V49G-3GFLn-f6mRjHsGaUAh.jpg",
-        //     musicSrc: "https://www.lijinke.cn/music/20171108.mp3"
-        // },
+        {
+            name: "达尔文",
+            singer: "蔡健雅",
+            cover: "https://www.lijinke.cn/music/5V49G-3GFLn-f6mRjHsGaUAh.jpg",
+            musicSrc: "https://www.lijinke.cn/music/20171108.mp3"
+        },
         {
             name: "十年青春换绝症",
             singer: "贰佰",

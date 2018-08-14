@@ -4,6 +4,7 @@ import App from './App';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Archive from './pages/Archive';
+import TagBlog from './pages/TagBlog';
 
 export default class Router extends React.Component {
 
@@ -13,9 +14,9 @@ export default class Router extends React.Component {
                 <App>
                     <Switch>
                         <Route path='/blog/:number' component={Blog} />
+                        <Route path='/tagblog/:name' component={TagBlog} />
                         <Route path='/archive' component={Archive} />
                         <Route path='/' component={Home} />
-                        {/* <Route component={NoMatch} /> */}
                     </Switch>
                 </App>
             </HashRouter>
