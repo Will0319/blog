@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Icon, Card, message , Tag } from 'antd';
+import { Row , Card, message , Tag } from 'antd';
 import './index.less';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -38,7 +38,7 @@ class Blog extends React.Component {
                     // 进行时间格式统一处理
                     const data = response.data;
                     // console.log(data)
-                    this.setState({ issuesInfo: data, loading:false})
+                    self.setState({ issuesInfo: data, loading:false})
                 }
             }).catch(function (error) {
                     message.warning('文章不存在');

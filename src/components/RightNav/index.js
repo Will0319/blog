@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import {Link,withRouter} from 'react-router-dom';
 // 引入标签弹窗
 import TagModal from '../TagModal';
-// 引入redux动作
-import { tagToggle, nowTagName } from '../../redux/action';
 
 const { Meta } = Card;
 
@@ -106,7 +104,6 @@ class RightNav extends React.Component {
                                 taglist.map((item,index)=>{
                                     return (
                                         <Link to={`/tagblog/${item.name}`} key={index}>
-                                            {/* <Tag key={index} color={`#${item.color}`} className="tag" onClick={()=>this.toTagBlog(item.name)}> */}
                                             <Tag key={index} color={`#${item.color}`} className="tag" >
                                                 {item.name}
                                             </Tag>

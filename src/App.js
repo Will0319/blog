@@ -47,7 +47,7 @@ class App extends Component {
   // 时间处理函数，留下年月日
   updateTime(data) {
     if (data.length === 0) return;
-    data.map((item, index) => {
+    data.map((item) => {
       item.created_at = Utils.TimeUpdate(item.created_at)
     })
     return data;

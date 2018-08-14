@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Card, Icon, Avatar, Col, Tag, Pagination} from 'antd';
+import { Row, Card, Icon , Col, Tag, Pagination} from 'antd';
 import './index.less';
 import {Link} from 'react-router-dom';
 // 动画组件
@@ -24,7 +24,7 @@ class Home extends React.Component {
     }
 
     componentWillReceiveProps(newProps){
-        if(this.props.issues!=newProps.issues){
+        if(this.props.issues!==newProps.issues){
             const { page, pageNum } = this.state;
             console.log(pageNum * (page - 1))
             console.log((pageNum * page) - 1)

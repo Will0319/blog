@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Card, Icon, Avatar, Col, Tag, Pagination, List } from 'antd';
+import { Row, Card, Icon , Col, Tag , List } from 'antd';
 import './index.less';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -22,7 +22,7 @@ export default class TagBlog extends React.Component {
 
     componentWillReceiveProps(newProps) {
         Utils.ScrollToAnchor();
-        if (this.props.match.params.name != newProps.match.params.name){
+        if (this.props.match.params.name !== newProps.match.params.name){
             this.setState({ name: newProps.match.params.name,list:[]})
             this.getBlogApiData(newProps.match.params.name)
         }
@@ -50,7 +50,7 @@ export default class TagBlog extends React.Component {
     // 时间处理函数，留下年月日
     updateTime(data) {
         if (data.length === 0) return;
-        data.map((item, index) => {
+        data.map((item) => {
             item.created_at = Utils.TimeUpdate(item.created_at)
         })
         return data;
@@ -60,7 +60,7 @@ export default class TagBlog extends React.Component {
         const { list, name, loading } = this.state;
         return (
             <Card
-                style={{ width: '100%' }}
+                style={{ width: '100%', marginBottom: 20 }}
                 loading={loading}
             >
                 <Meta
