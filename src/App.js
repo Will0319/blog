@@ -54,7 +54,6 @@ class App extends Component {
   }
 
   render() {
-    const { issues } = this.state;
     return (
       <HashRouter>
       <div className='web' >

@@ -42,12 +42,6 @@ class RightNav extends React.Component {
         })
     }
 
-    // toTagBlog=(name)=>{
-    //     this.props.history.push({
-    //         pathname: `/tagblog/${name}`
-    //     })
-    // }
-
     render() {
         const { taglist } = this.state;
         const { issues, tagvisible } = this.props;
