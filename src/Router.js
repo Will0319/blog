@@ -1,14 +1,21 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import App from './App';
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import Archive from './pages/Archive';
-import TagBlog from './pages/TagBlog';
+import asyncComponent from './AsyncComponent';
+// import App from './App';
+// import Home from './pages/Home';
+// import Blog from './pages/Blog';
+// import Archive from './pages/Archive';
+// import TagBlog from './pages/TagBlog';
+const Home = asyncComponent(() => import("./pages/Home"));
+const Blog = asyncComponent(() => import("./pages/Blog"));
+const Archive = asyncComponent(() => import("./pages/Archive"));
+const TagBlog = asyncComponent(() => import("./pages/TagBlog"));
+const App = asyncComponent(() => import("./App"));
 
 export default class Router extends React.Component {
 
     render() {
+
         return (
             <HashRouter>
                 <App>

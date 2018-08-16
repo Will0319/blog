@@ -3,8 +3,6 @@ import './index.less';
 import { Row, Card, Tooltip, Icon , Tag } from 'antd';
 import { connect } from 'react-redux';
 import {Link,withRouter} from 'react-router-dom';
-// 引入标签弹窗
-import TagModal from '../TagModal';
 
 const { Meta } = Card;
 
@@ -44,10 +42,9 @@ class RightNav extends React.Component {
 
     render() {
         const { taglist } = this.state;
-        const { issues, tagvisible } = this.props;
+        const { issues } = this.props;
         return (
             <Row>
-                {tagvisible ? <TagModal /> : null}
                 <Card bordered={false} hoverable={true} className="card" cover={<img src={require('../../img/headbg.jpeg')} />}>
                     <div className="authorImg">
                         <img src={require('../../img/headimg.jpg')} alt="" />

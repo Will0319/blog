@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/atom-one-dark.css';
+
 import Utils from '../../utils';
 const { Meta } = Card;
 class Blog extends React.Component {

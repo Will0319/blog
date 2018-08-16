@@ -56,38 +56,37 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-      <div className='web' >
-        <div id='to-header'></div>
-        {/* 返回顶部 */}
-        <div>
-          <BackTop>
-              <div className="ant-back-top-inner">UP</div>
-          </BackTop> 
-        </div>
-        {/* 头部组件 */}
-        <Header />
-        {/* 音乐组件 */}
-        <Music />
-          <Row className='bg'>
-            {/* 内容区域 */}
-            <Row style={{marginTop:20}}>
-              <Col xs={1} xm={1} md={1} lg={1} xl={3} xxl={4}></Col>
-              <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={16}>
-                  <Row>
-                    <Col xs={24} sm={24} md={24} lg={17} xl={17} xxl={17}>
-                      {this.props.children}
-                    </Col>
-                    <Col xs={24} sm={24} md={24} lg={{span:6,offset:1}} xl={{span:6,offset:1}} xxl={{span:6,offset:1}}>
-                      <RightNav/>
-                    </Col>
-                  </Row>
-              </Col>
+        <div className='web' >
+          <div id='to-header'></div>
+          {/* 返回顶部 */}
+          <div>
+            <BackTop>
+                <div className="ant-back-top-inner">UP</div>
+            </BackTop> 
+          </div>
+          {/* 头部组件 */}
+          <Header />
+          {/* 音乐组件 */}
+          <Music />
+            <Row className='bg'>
+              {/* 内容区域 */}
+              <Row style={{marginTop:20}}>
+                <Col xs={1} xm={1} md={1} lg={1} xl={3} xxl={4}></Col>
+                <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={16}>
+                    <Row>
+                      <Col xs={24} sm={24} md={24} lg={17} xl={17} xxl={17}>
+                        {this.props.children}
+                      </Col>
+                      <Col xs={24} sm={24} md={24} lg={{span:6,offset:1}} xl={{span:6,offset:1}} xxl={{span:6,offset:1}}>
+                        <RightNav/>
+                      </Col>
+                    </Row>
+                </Col>
+              </Row>
             </Row>
-          </Row>
-          {/* 底部组件 */}
-        <Footer />
-
-      </div>
+            {/* 底部组件 */}
+          <Footer />
+        </div>
       </HashRouter>
     );
   }

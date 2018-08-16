@@ -1,7 +1,6 @@
 import React from 'react';
 import { Timeline , Row , Card } from 'antd';
 import { connect } from 'react-redux';
-import Utils from '../../utils';
 import {Link} from 'react-router-dom';
 import './index.less';
 const { Meta } = Card;
@@ -9,25 +8,8 @@ const { Meta } = Card;
 
 class Archive extends React.Component {
     state = {
-        // issues:[]
+
     }
-    // componentWillMount(){
-    //     this.updateTime(this.props.issues);
-    // }
-    // componentWillReceiveProps(nextProps) {
-    //     if (this.props.issues !== nextProps.issues) {
-    //         this.updateTime(nextProps.issues);
-    //     }
-    // }
-
-    // updateTime(data){
-    //     if(data.length===0) return;
-    //     data.map((item,index)=>{
-    //         item.created_at = Utils.TimeUpdate(item.created_at)
-    //     })
-    //     this.setState({issues:data})
-    // }
-
     render() {
         const {issues} = this.props;
         return (
