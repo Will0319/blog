@@ -52,7 +52,7 @@ class App extends Component {
     })
     return data;
   }
-
+  
   render() {
     return (
       <HashRouter>

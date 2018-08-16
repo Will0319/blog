@@ -5,7 +5,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import marked from 'marked';
 import hljs from 'highlight.js';
-
 import Utils from '../../utils';
 const { Meta } = Card;
 class Blog extends React.Component {
@@ -16,18 +15,22 @@ class Blog extends React.Component {
     }
 
     componentWillMount(){
-        Utils.ScrollToAnchor();
         marked.setOptions({
             highlight: code => hljs.highlightAuto(code).value,
         });
         this.getBlogApiInfo(this.props.match.params.number);
     }
     componentWillReceiveProps(nextProps) {
+        Utils.ScrollToAnchor();
         if (this.props.match.params.number !== nextProps.match.params.number) {
-            Utils.ScrollToAnchor();
             this.getBlogApiInfo(nextProps.match.params.number);
         }
     }
+    // 返回顶部
+    componentDidMount() {
+        Utils.ScrollToAnchor();
+    }
+
     // 通过路由传来的参数去获取文档
     getBlogApiInfo(path) {
         this.setState({ issuesInfo: [], loading:true})

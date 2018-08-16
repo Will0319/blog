@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import './index.less';
 const { Meta } = Card;
-
+import Utils from '../../utils';
 
 class Archive extends React.Component {
     state = {
 
+    }
+    // 返回顶部
+    componentDidMount() {
+        Utils.ScrollToAnchor();
     }
     render() {
         const {issues} = this.props;

@@ -15,7 +15,6 @@ export default class TagBlog extends React.Component {
     }
 
     componentWillMount() {
-        Utils.ScrollToAnchor();
         this.setState({name:this.props.match.params.name})
         this.getBlogApiData(this.props.match.params.name)
     }
@@ -26,6 +25,10 @@ export default class TagBlog extends React.Component {
             this.setState({ name: newProps.match.params.name,list:[]})
             this.getBlogApiData(newProps.match.params.name)
         }
+    }
+    // 返回顶部
+    componentDidMount() {
+        Utils.ScrollToAnchor();
     }
     // 获取该标签的博客列表
     getBlogApiData(data) {
