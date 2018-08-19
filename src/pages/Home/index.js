@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 // 动画组件
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'react-redux';
+import Utils from '../../utils';
 const { Meta } = Card;
 
 class Home extends React.Component {
@@ -26,14 +27,17 @@ class Home extends React.Component {
     componentWillReceiveProps(newProps){
         if(this.props.issues!==newProps.issues){
             const { page, pageNum } = this.state;
-            console.log(pageNum * (page - 1))
-            console.log((pageNum * page) - 1)
             this.setState({ nowPageIssues: newProps.issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
         }
     }
 
+    // 返回顶部
+    componentDidMount() {
+        Utils.ScrollToAnchor();
+    }
+
     pageChange = (page, pageSize) => {
-        // console.log(page, pageSize)
+        Utils.ScrollToAnchor();
         const {pageNum} = this.state;
         const {issues} = this.props;
         this.setState({ page, nowPageIssues: issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
