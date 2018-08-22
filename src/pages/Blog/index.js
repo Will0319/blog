@@ -6,12 +6,17 @@ import { connect } from 'react-redux';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import Utils from '../../utils';
+import GitTalk from '../GitTalk';
 const { Meta } = Card;
+
+
 class Blog extends React.Component {
 
     state={
         issuesInfo:[],
-        loading:false
+        loading:false,
+        path:'',
+        talk:true
     }
 
     componentWillMount(){
@@ -19,11 +24,13 @@ class Blog extends React.Component {
             highlight: code => hljs.highlightAuto(code).value,
         });
         this.getBlogApiInfo(this.props.match.params.number);
+        this.setState({ path: this.props.match.params.number})
     }
     componentWillReceiveProps(nextProps) {
         Utils.ScrollToAnchor();
         if (this.props.match.params.number !== nextProps.match.params.number) {
             this.getBlogApiInfo(nextProps.match.params.number);
+            this.setState({ path: nextProps.match.params.number, talk:false})
         }
     }
     // 返回顶部
@@ -35,13 +42,13 @@ class Blog extends React.Component {
     getBlogApiInfo(path) {
         this.setState({ issuesInfo: [], loading:true})
         const self = this;
+        // console.log('https://api.github.com/repos/Will0319/blog/issues/' + path)
         axios.get('https://api.github.com/repos/Will0319/blog/issues/' + path, {
         }).then((response) => {
                 if (response.status === 200) {
                     // 进行时间格式统一处理
                     const data = response.data;
-                    // console.log(data)
-                    self.setState({ issuesInfo: data, loading:false})
+                    self.setState({ issuesInfo: data, loading: false, talk:true})
                 }
             }).catch(function (error) {
                     message.warning('文章不存在');
@@ -49,7 +56,7 @@ class Blog extends React.Component {
     }
 
     render() {
-        const { issuesInfo, loading } = this.state;
+        const { issuesInfo, loading ,talk} = this.state;
         return (
             <Row style={{color:'#fff',marginBottom:20}}>
                 <Card
@@ -83,6 +90,7 @@ class Blog extends React.Component {
                         }
                     />
                 </Card>
+                {talk ? <GitTalk path={this.state.path} />:null}
             </Row>
         );
     }
