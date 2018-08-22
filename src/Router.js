@@ -1,3 +1,4 @@
+// 兼容IE
 import 'babel-polyfill';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';

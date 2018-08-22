@@ -18,16 +18,16 @@ const options = {
         //     musicSrc: "http://www.ytmp3.cn/down/50539.mp3"
         // },
         {
-            name: "达尔文",
-            singer: "蔡健雅",
-            cover: "https://www.lijinke.cn/music/5V49G-3GFLn-f6mRjHsGaUAh.jpg",
-            musicSrc: "https://www.lijinke.cn/music/20171108.mp3"
+            name: "岁月神偷",
+            singer: "金玟岐",
+            cover: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534967232059&di=b2a896263b9806bafba0178688b5b05b&imgtype=0&src=http%3A%2F%2Fcdn.music.migu.cn%2Fpicture%2F2018%2F0622%2F1256%2FAL1611182053114003.jpg",
+            musicSrc: "http://www.ytmp3.cn/down/44537.mp3"
         },
         {
-            name: "十年青春换绝症",
-            singer: "贰佰",
-            cover: "https://www.lijinke.cn/music/18892908300128861.jpg",
-            musicSrc: "https://www.lijinke.cn/music/201711081.mp3"
+            name: "后来的我们",
+            singer: "五月天",
+            cover: "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=1cb4a5bc00f3d7ca18fb37249376d56c/b3119313b07eca80e1aedb659d2397dda044838d.jpg",
+            musicSrc: "http://www.ytmp3.cn/down/49444.mp3"
         }
     ],
 
