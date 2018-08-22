@@ -22,14 +22,7 @@ class App extends Component {
   getBlogApiData() {
     axios.get('https://api.github.com/repos/Will0319/blog/issues', {
       params: {
-        creator: 'Will0319',
-        // labels: 'blog',
-        // page: 1,
-        // per_page: 2,
-        // state: 'open',
-        // sort: 'created',
-        // direction: 'desc',
-        // access_token: 'e1f96b725819ec59913f04d2ee6901de'
+        creator: 'Will0319'
       },
     }).then((response) => {
       if (response.status === 200) {

@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import asyncComponent from './AsyncComponent';
