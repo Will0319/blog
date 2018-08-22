@@ -57,7 +57,7 @@ class RightNav extends React.Component {
                         }
                         description={
                             <div>
-                                <p className="abstract">一个前端菜鸟</p>
+                                <p className="abstract">一只前端菜鸟</p>
                                 <p className="abstract">
                                     <span>文章 - {issues.length}</span>
                                 </p>
