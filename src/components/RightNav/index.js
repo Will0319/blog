@@ -39,7 +39,9 @@ class RightNav extends React.Component {
             taglist
         })
     }
-
+    toGitIndex=()=>{
+        window.open('https://github.com/Will0319');
+    }
     render() {
         const { taglist } = this.state;
         const { issues } = this.props;
@@ -72,7 +74,7 @@ class RightNav extends React.Component {
                             <Icon type="solution" style={{ fontSize: 30 }}/>
                         </Tooltip>
                         <Tooltip title="github">
-                            <Icon type="github" style={{fontSize:30}}/>
+                            <Icon type="github" style={{fontSize:30}} onClick={()=>this.toGitIndex()}/>
                         </Tooltip>
                         <Tooltip
                         title={

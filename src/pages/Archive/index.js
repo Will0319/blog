@@ -18,7 +18,6 @@ class Archive extends React.Component {
         const {issues} = this.props;
         return (
             <Card bordered={false} hoverable={true} className="card" >
-                {console.log(this.props.issues)}
                 <Meta
                     title={
                         <div>
