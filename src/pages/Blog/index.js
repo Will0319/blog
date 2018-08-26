@@ -42,7 +42,6 @@ class Blog extends React.Component {
     getBlogApiInfo(path) {
         this.setState({ issuesInfo: [], loading:true})
         const self = this;
-        // console.log('https://api.github.com/repos/Will0319/blog/issues/' + path)
         axios.get('https://api.github.com/repos/Will0319/blog/issues/' + path, {
         }).then((response) => {
                 if (response.status === 200) {
