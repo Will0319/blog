@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 // 动画组件
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'react-redux';
-import Utils from '../../utils';
+import { ScrollToAnchor } from '../../utils';
 const { Meta } = Card;
 
 class Home extends React.Component {
@@ -33,11 +33,11 @@ class Home extends React.Component {
 
     // 返回顶部
     componentDidMount() {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
     }
 
     pageChange = (page, pageSize) => {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
         const {pageNum} = this.state;
         const {issues} = this.props;
         this.setState({ page, nowPageIssues: issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})

@@ -3,7 +3,7 @@ import { Row, Card, Icon , Col, Tag , List } from 'antd';
 import './index.less';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Utils from '../../utils';
+import { TimeUpdate, ScrollToAnchor} from '../../utils';
 const { Meta } = Card;
 
 export default class TagBlog extends React.Component {
@@ -20,7 +20,7 @@ export default class TagBlog extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
         if (this.props.match.params.name !== newProps.match.params.name){
             this.setState({ name: newProps.match.params.name,list:[]})
             this.getBlogApiData(newProps.match.params.name)
@@ -28,7 +28,7 @@ export default class TagBlog extends React.Component {
     }
     // 返回顶部
     componentDidMount() {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
     }
     // 获取该标签的博客列表
     getBlogApiData(data) {
@@ -54,7 +54,7 @@ export default class TagBlog extends React.Component {
     updateTime(data) {
         if (data.length === 0) return;
         data.map((item) => {
-            item.created_at = Utils.TimeUpdate(item.created_at)
+            item.created_at = TimeUpdate(item.created_at)
         })
         return data;
     }

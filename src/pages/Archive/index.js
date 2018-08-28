@@ -2,9 +2,10 @@ import React from 'react';
 import { Timeline , Row , Card } from 'antd';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import { ScrollToAnchor } from '../../utils';
 import './index.less';
 const { Meta } = Card;
-import Utils from '../../utils';
+
 
 class Archive extends React.Component {
     state = {
@@ -12,7 +13,7 @@ class Archive extends React.Component {
     }
     // 返回顶部
     componentDidMount() {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
     }
     render() {
         const {issues} = this.props;

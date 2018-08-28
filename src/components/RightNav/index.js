@@ -124,7 +124,6 @@ class RightNav extends React.Component {
 const mapStateToProps = state => {
     return {
         issues: state.issues,
-        tagvisible: state.tagvisible,
     }
 }
 

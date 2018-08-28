@@ -9,7 +9,7 @@ import RightNav from './components/RightNav';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { issuesList } from './redux/action';
-import Utils from './utils';
+import { TimeUpdate} from './utils';
 
 class App extends Component {
   state = {
@@ -41,7 +41,7 @@ class App extends Component {
   updateTime(data) {
     if (data.length === 0) return;
     data.map((item) => {
-      item.created_at = Utils.TimeUpdate(item.created_at)
+      item.created_at = TimeUpdate(item.created_at)
     })
     return data;
   }

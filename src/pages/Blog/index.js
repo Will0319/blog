@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import Utils from '../../utils';
+import { TimeUpdate, ScrollToAnchor} from '../../utils';
 import GitTalk from '../GitTalk';
 const { Meta } = Card;
 
@@ -27,7 +27,7 @@ class Blog extends React.Component {
         this.setState({ path: this.props.match.params.number})
     }
     componentWillReceiveProps(nextProps) {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
         if (this.props.match.params.number !== nextProps.match.params.number) {
             this.getBlogApiInfo(nextProps.match.params.number);
             this.setState({ path: nextProps.match.params.number, talk:false})
@@ -35,7 +35,7 @@ class Blog extends React.Component {
     }
     // 返回顶部
     componentDidMount() {
-        Utils.ScrollToAnchor();
+        ScrollToAnchor();
     }
 
     // 通过路由传来的参数去获取文档
@@ -68,7 +68,7 @@ class Blog extends React.Component {
                                 <div>
                                     <h2>{issuesInfo.title}</h2>
                                     <div style={{ fontSize: 14 }}>
-                                        <span style={{marginRight:16}}>发表于 : {Utils.TimeUpdate(issuesInfo.created_at)}</span>
+                                        <span style={{marginRight:16}}>发表于 : {TimeUpdate(issuesInfo.created_at)}</span>
                                         标签 : {
                                             issuesInfo && issuesInfo.labels && issuesInfo.labels.length?(
                                                 issuesInfo.labels.map((item,index)=>{

@@ -1,11 +1,12 @@
 import { applyMiddleware, createStore, compose} from 'redux';
 import { createLogger } from 'redux-logger'
 
-import reducer from './../reducer';
+import reducer from '../reducer';
 
 const initialState = {
     issues: []
 }
+
 // export default () => createStore(reducer, initialState);
 // export default () => createStore(
 //     reducer,
