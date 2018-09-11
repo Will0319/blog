@@ -48,7 +48,7 @@ const options = {
 
     //Whether to load audio immediately after the page loads.  [type `Boolean | String`, default `false`]
     //"auto|metadata|none" "true| false"
-    preload: false,
+    preload: true,
 
     //Whether the player's background displays frosted glass effect  [type `Boolean`, default `false`]
     glassBg: false,
