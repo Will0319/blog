@@ -70,12 +70,12 @@ export default class TagBlog extends React.Component {
                     title={<h3>{`标签 : ${name}`}</h3>}
                     description={
                         <List
-                            pagination={{
-                                onChange: (page) => {
-                                    console.log(page);
-                                },
-                                pageSize: 10,
-                            }}
+                            // pagination={{
+                            //     onChange: (page) => {
+                            //         console.log(page);
+                            //     },
+                            //     pageSize: 1,
+                            // }}
                             itemLayout="horizontal"
                             dataSource={list}
                             renderItem={item => (

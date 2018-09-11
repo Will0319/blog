@@ -3,16 +3,24 @@ import './index.less';
 import { Row, Card, Tooltip, Icon , Tag } from 'antd';
 import { connect } from 'react-redux';
 import {Link,withRouter} from 'react-router-dom';
+import { TimesFun } from '../../utils';
 
 const { Meta } = Card;
 
 class RightNav extends React.Component {
     state={
-        taglist:[]
+        taglist:[],
+        sysTime: TimesFun('2018-08-08 22:00:00')
     }
     componentWillMount() {
         const {issues} = this.props;
         this.noRepeat(issues);
+        setInterval(() => {
+            let sysTime = TimesFun('2018-08-08 22:00:00')
+            this.setState({
+                sysTime
+            })
+        }, 1000)
     }
     componentWillReceiveProps(nextProps){
         if (this.props.issues !== nextProps.issues){
@@ -43,7 +51,7 @@ class RightNav extends React.Component {
         window.open('https://github.com/Will0319');
     }
     render() {
-        const { taglist } = this.state;
+        const { taglist, sysTime} = this.state;
         const { issues } = this.props;
         return (
             <Row>
@@ -59,10 +67,11 @@ class RightNav extends React.Component {
                         }
                         description={
                             <div>
-                                <p className="abstract">一只前端菜鸟</p>
+                                <p className="abstract">走在全栈的路上</p>
                                 <p className="abstract">
                                     <span>文章 - {issues.length}</span>
                                 </p>
+                                <p className="abstract">博客已上线：{sysTime}</p>
                             </div>
                         }
                     />

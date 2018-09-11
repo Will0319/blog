@@ -37,6 +37,7 @@ class Home extends React.Component {
     }
 
     pageChange = (page, pageSize) => {
+        // console.log('change')
         ScrollToAnchor();
         const {pageNum} = this.state;
         const {issues} = this.props;
