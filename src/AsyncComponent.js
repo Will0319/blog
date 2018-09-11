@@ -12,6 +12,7 @@ export default function asyncComponent(importComponent) {
                 component: null
             };
             NProgress.start();
+            // console.log('start')
         }
         
         async componentDidMount() {
@@ -24,7 +25,10 @@ export default function asyncComponent(importComponent) {
 
         render() {
             const Component = this.state.component;
-            NProgress.done();
+            if (Component){
+                NProgress.done();
+                // console.log('done')
+            }
             return Component ? <Component {...this.props} /> : <div style={{width:'100vh',height:'100vh'}}><Spin style={{position:"absolute",marginTop:'48%',marginLeft:'49%'}} size='large' tip="Loading..."/></div>
         }
     }
