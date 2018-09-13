@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -10,6 +11,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/moon.ico">
+    <link rel="stylesheet" href="/live2d/css/live2d.css" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,13 +29,14 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <div class="ajax-loading" id="ajaxLoading" style="display: none;">
-      <div class="overlay"></div>
-      <div class="loading">
-        <img src="https://media.number-7.cn/ebike-h5/static/images/common/loading.gif" alt="">
-        <span>加载中，请稍后...</span>
-      </div>
-    </div>
+  <div id="landlord" style='right: 0;'>
+      <div class="message" style="opacity:0"></div>
+      <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+      <div class="home-button">主页</div>
+      <div class="archive-button">归档</div>
+      <div class="top-button">返回顶部</div>
+      <div class="hide-button">隐藏</div>
+  </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -44,6 +47,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="/live2d/js/jquery-3.1.1.min.js"></script>
     <script>
       var _hmt = _hmt || [];
       (function () {
@@ -52,6 +56,15 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
+    </script>
+    <script type="text/javascript">
+      var message_Path = '/live2d/';
+      var home_Path = 'http://www.yx319.cn/'; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/live2d/js/message.js"></script>
+    <script type="text/javascript">
+      loadlive2d("live2d", "/live2d/model/tia/model.json");
     </script>
   </body>
 </html>

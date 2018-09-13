@@ -61,7 +61,7 @@ const options = {
 
     //audio controller initial position    [ type `Object` default '{top:0,left:0}' ]
     defaultPosition: {
-        bottom: 100,
+        bottom: 50,
         left: 50
     },
 

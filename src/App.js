@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Row, Col, BackTop} from 'antd';
+import { Row, Col} from 'antd';
 import './App.less';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -52,11 +52,11 @@ class App extends Component {
         <div className='web' >
           <div id='to-header'></div>
           {/* 返回顶部 */}
-          <div>
+          {/* <div>
             <BackTop>
                 <div className="ant-back-top-inner">UP</div>
             </BackTop> 
-          </div>
+          </div> */}
           {/* 头部组件 */}
           <Header />
           {/* 音乐组件 */}
