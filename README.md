@@ -6,3 +6,5 @@
  * yarn start 快速启动项目
  * yarn build 进行上线项目打包
 
+## 计划  
+ * 1 live2D包还是JQ引入的 下步计划将live2d改为react版本
