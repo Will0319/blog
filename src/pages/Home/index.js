@@ -15,7 +15,7 @@ class Home extends React.Component {
         // 当前选中的页码
         page:1,
         // 一页的数量
-        pageNum:5
+        pageNum:8
     }
 
     componentWillMount(){

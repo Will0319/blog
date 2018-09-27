@@ -115,14 +115,19 @@ class RightNav extends React.Component {
                             ):'暂无标签'
                         }
                 </Card>
-                <Card title={<span onClick={()=>this.toTop()}>文章列表</span>} hoverable={true} className="card">
+                <Card title={<span onClick={()=>this.toTop()}>最新文章</span>} hoverable={true} className="card">
                     <ul>
-                        {issues &&
-                            issues.map((item, index) => (
-                                <li key={index} className="tag">
-                                    <Link to={`/blog/${item.number}`}>{item.title}</Link>
-                                </li>
-                            ))}
+                        {issues && issues.length ?
+                            issues.map((item, index) => {
+                                if (index<10){
+                                    return(
+                                        <li key={index} className="tag">
+                                            <Link to={`/blog/${item.number}`}>{item.title}</Link>
+                                        </li>
+                                    )
+                                }
+                            }):null
+                        }
                     </ul>
                 </Card>
             </Row>
