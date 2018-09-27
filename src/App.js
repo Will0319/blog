@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Music from './components/Music';
 import RightNav from './components/RightNav';
+import { CONFIG } from './config';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { issuesList } from './redux/action';
@@ -17,10 +18,23 @@ class App extends Component {
   }
   componentWillMount() {
     this.getBlogApiData();
+    // 百度统计调用
+    this.addBaiduAnaly();
+  }
+
+  // 百度统计
+  addBaiduAnaly() {
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement('script');
+      hm.src = '//hm.baidu.com/hm.js?' + CONFIG['baiduAnaly'];
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
   }
   // 获取博客内容
   getBlogApiData() {
-    axios.get('https://api.github.com/repos/Will0319/blog/issues', {
+    axios.get(`https://api.github.com/repos/${CONFIG['owner']}/blog/issues`, {
       params: {
         creator: 'Will0319'
       },

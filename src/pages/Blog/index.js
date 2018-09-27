@@ -5,6 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import marked from 'marked';
 import hljs from 'highlight.js';
+import { CONFIG } from '../../config';
 import { TimeUpdate, ScrollToAnchor} from '../../utils';
 import GitTalk from '../GitTalk';
 const { Meta } = Card;
@@ -42,7 +43,7 @@ class Blog extends React.Component {
     getBlogApiInfo(path) {
         this.setState({ issuesInfo: [], loading:true})
         const self = this;
-        axios.get('https://api.github.com/repos/Will0319/blog/issues/' + path, {
+        axios.get(`https://api.github.com/repos/${CONFIG['owner']}/blog/issues/` + path, {
         }).then((response) => {
                 if (response.status === 200) {
                     // 进行时间格式统一处理

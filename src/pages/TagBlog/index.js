@@ -3,6 +3,7 @@ import { Row, Card, Icon , Col, Tag , List } from 'antd';
 import './index.less';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { CONFIG } from '../../config';
 import { TimeUpdate, ScrollToAnchor} from '../../utils';
 const { Meta } = Card;
 
@@ -33,7 +34,7 @@ export default class TagBlog extends React.Component {
     // 获取该标签的博客列表
     getBlogApiData(data) {
         this.setState({ loading:true})
-        axios.get('https://api.github.com/repos/Will0319/blog/issues', {
+        axios.get(`https://api.github.com/repos/${CONFIG['owner']}/blog/issues`, {
             params: {
                 creator: 'Will0319',
                 labels: data,
