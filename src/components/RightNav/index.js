@@ -67,13 +67,14 @@ class RightNav extends React.Component {
                         }
                         description={
                             <div>
-                                <p className="abstract">走在全栈的路上</p>
+                                <p className="abstract">千万别成为大多数人</p>
                                 <p className="abstract">
                                     <span>文章 - {issues.length}</span>
                                 </p>
                                 <p className="abstract">博客已上线：{sysTime}</p>
                                 <p className="abstract">其他项目：</p>
                                 <p className="abstract">1.<a target="_blank" href="http://search.yx319.cn">前端导航 search.yx319.cn</a></p>
+                                <p className="abstract">2.<a target="_blank" href="https://github.com/Will0319/react-yx-app">React脚手架</a></p>
                             </div>
                         }
                     />
