@@ -1,7 +1,7 @@
 // 兼容IE
 import 'babel-polyfill';
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import asyncComponent from './AsyncComponent';
 const Home = asyncComponent(() => import("./pages/Home"));
 const Blog = asyncComponent(() => import("./pages/Blog"));
@@ -13,7 +13,7 @@ export default class Router extends React.Component {
     
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <App>
                     <Switch>
                         <Route exact path='/blog/:number' component={Blog} />
@@ -22,7 +22,7 @@ export default class Router extends React.Component {
                         <Route exact path='/' component={Home} />
                     </Switch>
                 </App>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

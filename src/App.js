@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Row, Col} from 'antd';
 import './App.less';
 import Header from './components/Header';
@@ -64,7 +64,7 @@ class App extends Component {
   
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className='web' >
           <div id='to-header'></div>
           {/* 返回顶部 */}
@@ -96,7 +96,7 @@ class App extends Component {
             {/* 底部组件 */}
           <Footer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
